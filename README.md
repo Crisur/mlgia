@@ -1,6 +1,7 @@
 # MLGIA - Machine Learning Group Intelligence Artificial
 
 ### Structure
+- data-collector - Spring Boot application to obtain Dataset
 - assistant - Application Spring Boot with IBM Watson Assistant service.
 - chatbot-ui - Application Vaadin with the Chatbot UI.
 - speech-to-text - Application Spring Boot with IBM Watson Speech to Text service.
