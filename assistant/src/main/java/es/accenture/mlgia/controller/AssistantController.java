@@ -35,9 +35,12 @@ public class AssistantController {
 	@Value("${service.assistant.password}")
 	private String password;
 	
+	@Value("${service.assistant.version}")
+	private String version;
+	
 	@PostConstruct
 	public void setup() {
-		service = new Assistant("2018-04-29");
+		service = new Assistant(version);
 		service.setUsernameAndPassword(username, password);
 		contexts = new HashMap<String, Context>();
 	}
@@ -47,6 +50,10 @@ public class AssistantController {
 		
 		Context context = null;
 		MessageResponse response = null;
+		
+		if (message.getMessageIn() == null) {
+			message.setMessageIn("");
+		}
 		
 		if (message.getConversationId() != null && !"".equals(message.getConversationId())) {
 			context = contexts.get(message.getConversationId());
@@ -59,10 +66,9 @@ public class AssistantController {
 				  .build();
 		
 		response = service.message(newMessageOptions).execute();
-		
-		if (!contexts.containsKey(response.getContext().getConversationId())) {
-			contexts.put(response.getContext().getConversationId(), response.getContext());	
-		}
+
+		// the context must be updated always
+		contexts.put(response.getContext().getConversationId(), response.getContext());	
 		
 		message.setMessageOut(response.getOutput().getText().get(0));
 		message.setConversationId(response.getContext().getConversationId());
