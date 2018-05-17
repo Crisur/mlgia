@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import es.accenture.mlgia.watson.SpeachToText;
+import es.accenture.mlgia.watson.SpeechToTextMlgia;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,7 +28,7 @@ public class SpeechToTextController    {
 	@Getter private String sMensajeInfo;
 
 	@Autowired
-	SpeachToText speach;
+	SpeechToTextMlgia speach;
 
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public String info() {
