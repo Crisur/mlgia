@@ -46,6 +46,7 @@ public class MainUI extends UI {
 	
 	
 	
+	
 	@Autowired
 	ConsumerAssistant consumerAssistant;
 	
@@ -75,7 +76,9 @@ public class MainUI extends UI {
 	}
 	
 	private void clickSendText(ClickEvent event) {
-		consumerAssistant.invokeAssistant(binder.getBean());
+		MessageDTO messageDTO = consumerAssistant.invokeAssistant(binder.getBean());
+		binder.getBean().setConversationId(messageDTO.getConversationId());
+		binder.getBean().setMessageIn("");
 		
 	}
 	
@@ -90,6 +93,8 @@ public class MainUI extends UI {
 		
 		// Chat Area
 		
+		
+		VerticalLayout vlContentArea = new VerticalLayout();
 		
 		
 		// Bottom
