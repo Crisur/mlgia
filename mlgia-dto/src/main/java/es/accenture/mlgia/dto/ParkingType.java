@@ -1,25 +1,23 @@
 package es.accenture.mlgia.dto;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 
 public enum ParkingType {
 	
 	SALITRE("Salitre", 1),
 	CERVANTES("Cervantes", 2),
 	PALO("El Palo", 3),
-	ANDALUCIA("Av. de AndalucÃ­Â­a", 4),
+	ANDALUCIA("Av. de Andalucía", 4),
 	CAMAS("Camas", 5),
 	HUMILLADERO("Cruz De Humilladero", 6),
 	ALCAZABA("Alcazaba", 8),
 	SAN_JUAN("San Juan De La Cruz", 9),
 	MARINA("Pz. de la Marina", 10),
-	TEJON_RODRIGUEZ("TejÃ³n y Rodriguez", 12),
+	TEJON_RODRIGUEZ("Tejón y Rodriguez", 12),
 	CARMEN("El Carmen", 138),
-	MARMOLES("MÃ¡rmoles", 139),
+	MARMOLES("Mármoles", 139),
 	LIMONAR("El Limonar", 140),
-	BAILEN("BailÃ©n", 142);
+	BAILEN("Bailén", 142);
 	
 	private String name;
 	
@@ -38,7 +36,7 @@ public enum ParkingType {
 		return this.id;
 	}
 	
-	public Integer getIdByName(String name) {
+	public static Integer getIdByName(String name) {
 		
 		Integer id = null;
 		
@@ -52,7 +50,7 @@ public enum ParkingType {
 		
 	}
 	
-	public ParkingType getParkingByName(String name) {
+	public static ParkingType getParkingByName(String name) {
 
 		return Arrays.asList(ParkingType.values()).stream()
 				.filter(p -> p.getName().toLowerCase().trim().equals(name.toLowerCase().trim()))
