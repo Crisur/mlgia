@@ -46,7 +46,8 @@ public class SpeechToTextController    {
             File audio = convert(file);
 
             transcripcion = speach.getText(audio);
-
+            //Se elimina el fichero
+            audio.delete();
           return transcripcion;
         }catch (IOException e){
             log.error("Gettin Transcription of File "+ file.getOriginalFilename()+" failed !");
