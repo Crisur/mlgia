@@ -1,0 +1,8 @@
+@import "addons.scss";
+@import "mlgia.scss";
+
+.mlgia {
+  @include addons;
+  @include mlgia;
+}
+
