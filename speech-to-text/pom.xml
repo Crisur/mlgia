@@ -40,6 +40,13 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
+
+		<dependency>
+		    <groupId>com.ibm.watson.developer_cloud</groupId>
+		    <artifactId>speech-to-text</artifactId>
+		    <version>3.4.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
