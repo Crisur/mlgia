@@ -34,6 +34,7 @@ public class SpeechToTextControllerTest {
 
 	private final String UPLOAD_SERVICIO = "/speech-to-text";
 	private final String INFO_SERVICIO = "/info";
+	private final String TEXTO_ESPERADO = "this program is working fine";
 
 	private final String STATUS_OK = "200";
 
@@ -48,8 +49,10 @@ public class SpeechToTextControllerTest {
 
 		ResponseEntity<String> result = template.postForEntity(
 													UPLOAD_SERVICIO, map,String.class);
-		System.out.println(result);
+
 		assertEquals(STATUS_OK, result.getStatusCode().toString());
+		assertEquals(TEXTO_ESPERADO, result.getBody().toString().trim());
+
 	}
 
 	@Test

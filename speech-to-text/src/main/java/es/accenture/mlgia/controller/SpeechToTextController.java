@@ -38,19 +38,19 @@ public class SpeechToTextController    {
 
 
     @RequestMapping(value = "/speech-to-text", method = RequestMethod.POST)
-    public @ResponseBody void upload(@RequestParam(value = "audiofile")MultipartFile file){
+    public @ResponseBody String upload(@RequestParam(value = "audiofile")MultipartFile file){
 
-        String nombreFichero = "";
+        String transcripcion = "";
         try{
-            log.debug("Upload Image "+file.getOriginalFilename());
-            nombreFichero = file.getOriginalFilename();
+            log.debug("Upload File: "+file.getOriginalFilename());
             File audio = convert(file);
 
-            speach.getText(audio);
+            transcripcion = speach.getText(audio);
 
-          log.debug("File:" + nombreFichero);
+          return transcripcion;
         }catch (IOException e){
-            log.error("Upload File "+nombreFichero+" failed !");
+            log.error("Gettin Transcription of File "+ file.getOriginalFilename()+" failed !");
+            return "";
         }
     }
 

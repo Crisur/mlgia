@@ -33,8 +33,9 @@ public class SpeachToText {
 		 speechService = new SpeechToText();
 	     speechService.setUsernameAndPassword(usuario, password);
 
-	     ServiceCall<SpeechResults> result = speechService.recognize(audioFile, getRecognizeOptions());
-	     log.debug("Texto:" + result.toString());
+	     SpeechResults  result = speechService.recognize(audioFile, getRecognizeOptions()).execute();
+	     log.debug("Texto:" + result.getResults().get(0).getAlternatives().get(0).getTranscript());
+	     salida = result.getResults().get(0).getAlternatives().get(0).getTranscript();
 		return salida;
 	}
 
