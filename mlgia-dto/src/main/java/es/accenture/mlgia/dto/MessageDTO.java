@@ -20,6 +20,8 @@ public class MessageDTO {
     private String messageIn;
     
     private String messageOut;
+    
+    private String messagePredictOut;
  
     private Date date;
     
