@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.accenture.com.mlgia.audio.Audio;
+import es.accenture.mlgia.audio.Audio;
 import lombok.Getter;
 
 import javax.servlet.http.HttpServletResponse;
