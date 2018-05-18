@@ -99,10 +99,9 @@ def day_week(actual_date):
     day = int(actual_date_array[2])
 
     final_date = date(year, month, day)
-    ##El metodo isoweekday nos devuelve el día de la semana
     day_week = datetime.isoweekday(final_date)
-    ## Se recoge el día de la semana que corresponde a la fecha (de 0 a 6)
 
+    #Day_week from 0 to 6
     day_week = day_week - 1
 
     return day_week
